@@ -59,6 +59,11 @@ header {
         font-weight: normal;
     }
 
+    a:has(h1):hover,
+    a:has(h1):focus {
+        text-decoration: none;
+    }
+
     a,
     a:hover,
     a:focus {
