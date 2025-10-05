@@ -95,13 +95,11 @@ header {
 
 .nav {
     max-height: 0;
-    /* transition: all 1s ease; */
 }
 
 /* menu icon */
 .hamb {
     cursor: pointer;
-    /* float: right; */
     padding: 40px 20px;
 }
 
@@ -140,10 +138,6 @@ header {
 
 /* toggle menu icon */
 .side-menu:checked~nav {
-    /* max-height: 75%;
-    width: fit-content;
-    top: 6rem;
-    right: 0; */
     max-height: 100%;
     top: 6.15rem;
 }
@@ -178,7 +172,6 @@ footer {
     background-color: var(--black);
     color: var(--white);
     padding: 2rem;
-    /* clear: both; */
 
     p {
         margin: 1rem;
