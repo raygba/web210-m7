@@ -1,0 +1,337 @@
+/* import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Italianno&display=swap');
+
+/* CSS RESET & UNIVERSAL STYLES */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #3b561d;
+    --red: #C03F1B;
+    --lightred: #E25832;
+    --white: #EDEDED;
+    --black: #181818;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 450;
+    background-color: gainsboro;
+    line-height: 1.5rem;
+
+    a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: underline;
+        color: var(--red);
+    }
+}
+
+/* HEADER & NAV STYLES */
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    padding: 0.5rem 2rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.75);
+    font-size: 1.25rem;
+    z-index: 2;
+
+    h1 {
+        font-family: Italianno, 'EB Garamond', serif;
+        font-size: 3rem;
+        line-height: 2.5rem;
+        font-weight: normal;
+    }
+
+    a,
+    a:hover,
+    a:focus {
+        color: var(--white);
+    }
+}
+
+.nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--black);
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+}
+
+.navmenu a {
+    display: block;
+    padding: 30px;
+    color: var(--white);
+}
+
+.navmenu a:hover,
+.navmenu a:focus {
+    background-color: var(--white);
+    color: var(--red);
+}
+
+.nav {
+    max-height: 0;
+    /* transition: all 1s ease; */
+}
+
+/* menu icon */
+.hamb {
+    cursor: pointer;
+    /* float: right; */
+    padding: 40px 20px;
+}
+
+/* draw hamburger menu lines */
+.hamb-line {
+    background: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+.hamb-line::before,
+.hamb-line::after {
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before {
+    top: 5px;
+}
+
+.hamb-line::after {
+    top: -5px;
+}
+
+/* hide checkbox */
+.side-menu {
+    display: none;
+}
+
+/* toggle menu icon */
+.side-menu:checked~nav {
+    /* max-height: 75%;
+    width: fit-content;
+    top: 6rem;
+    right: 0; */
+    max-height: 100%;
+    top: 6.15rem;
+}
+
+/* change hamburger menu to X */
+.side-menu:checked~.hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked~.hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.side-menu:checked~.hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* disable scrolling while nav menu open */
+body:has(.side-menu:checked) {
+    overflow: hidden;
+}
+
+/* FOOTER STYLES */
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 2rem;
+    /* clear: both; */
+
+    p {
+        margin: 1rem;
+    }
+
+    a {
+        color: var(--white);
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--lightred);
+    }
+}
+
+/* MAIN STYLES */
+main div div {
+    padding: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+#hero-img {
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+#pasta {
+    width: 50%;
+    max-width: 300px;
+    border-radius: 100%;
+}
+
+#pasta {
+    float: left;
+    margin: 1rem 1rem 1rem 0;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+#wine-section {
+    position: relative;
+    width: 100%;
+    color: var(--white);
+    overflow: hidden;
+}
+
+main h2,
+main h3,
+main p {
+    padding: 1rem 0;
+}
+
+/* image background */
+#wine-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/wine-min.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+}
+
+/* dark overlay for readability */
+#wine-section-overlay {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ----------------- MEDIA QUERIES ----------------- */
+@media screen and (min-width: 1216px) {
+
+    /* HEADER & NAV */
+    header {
+        padding: 0;
+
+        h1 {
+            font-size: 4.5rem;
+            line-height: 4.5rem;
+            margin: 0 1rem;
+        }
+    }
+
+    .side-menu:checked~.nav,
+    .nav {
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    /* prevent nav menu from disabling scrolling on desktop */
+    body:has(.side-menu:checked) {
+        overflow: auto;
+    }
+
+    .navmenu {
+        display: flex;
+        width: fit-content;
+    }
+
+    .navmenu li {
+        display: block;
+        float: left;
+    }
+
+    .navmenu a:hover,
+    .navmenu a:focus {
+        background-color: var(--white);
+        color: var(--red);
+    }
+
+    .hamb {
+        display: none;
+    }
+
+    /* MAIN */
+    main p {
+        max-width: 70ch;
+    }
+
+
+    #hero {
+        width: 75%;
+        margin: auto;
+        padding: 1rem 0;
+    }
+
+    #pasta {
+        float: none;
+        max-width: 30%;
+    }
+
+    #hero-flexbox,
+    #wine-flexbox {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+
+        p {
+            padding: 1rem;
+        }
+
+        #wine-list {
+            width: fit-content;
+
+            h3 {
+                padding: 1rem 0;
+            }
+        }
+    }
+}
